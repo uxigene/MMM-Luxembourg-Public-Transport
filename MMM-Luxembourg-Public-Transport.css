@@ -1,0 +1,57 @@
+.lux-transport {
+    line-height: 1.5;
+}
+
+    .lux-transport__next {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+        .lux-transport__next__title {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .lux-transport__next__time {
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+            .lux-transport__next__time > strong {
+                color: #fff;
+            }
+
+        .lux-transport__next__subtitle {
+            font-size: 20px;
+        }
+
+    .lux-transport__schedule {
+        vertical-align: top;
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        max-width: 450px;
+        column-count: 4;
+    }
+        .lux-transport__schedule__item {
+            white-space: nowrap;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+            .lux-transport__schedule__item:first-child {
+                position: relative;
+                color: #fff;
+            }
+                .lux-transport__schedule__item:first-child:before {
+                    content: '';
+                    position: absolute;
+                    left: -14px;
+                    top: 6px;
+                    width: 0;
+                    height: 0;
+                    border-top: 5px solid transparent;
+                    border-bottom: 5px solid transparent;
+
+                    border-left: 8px solid #fff;
+                }
