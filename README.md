@@ -40,7 +40,8 @@ The following property can be configured:
 			<th>Option</th>
 			<th width="100%">Description</th>
 		</tr>
-	<thead>
+	</thead>
+
 	<tbody>
 		<tr>
 			<td><code>from</code></td>
