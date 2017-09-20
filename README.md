@@ -30,7 +30,7 @@ modules: [
 ````
 
 ## Configuration options
-Please check this <a href="https://data.public.lu/en/datasets/arrets-de-transport-public-et-departs-en-temps-reel/" target="blank">API</a>
+Please check this <a href="https://data.public.lu/en/datasets/arrets-de-transport-public-et-departs-en-temps-reel/">API</a>
 
 The following property can be configured:
 
@@ -46,14 +46,14 @@ The following property can be configured:
 		<tr>
 			<td><code>from</code></td>
 			<td>
-				API parameter. <a href="http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes" target="blank">Station ID</a>
+				API parameter. <a href="http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes">Station ID</a>
 			</td>
 		</tr>
 
 		<tr>
 			<td><code>to</code></td>
 			<td>
-				API parameter. <a href="http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes" target="blank">Station ID</a>
+				API parameter. <a href="http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes">Station ID</a>
 			</td>
 		</tr>
 
@@ -84,7 +84,7 @@ The following property can be configured:
 		<tr>
 			<td><code>animationSpeed</code></td>
 			<td>
-				<a href="https://github.com/MichMich/MagicMirror/blob/master/modules/README.md#thisupdatedomspeed" target="blank">Animation speed in milliseconds.</a>
+				<a href="https://github.com/MichMich/MagicMirror/blob/master/modules/README.md#thisupdatedomspeed">Animation speed in milliseconds.</a>
 				<b>Default value:</b> <code>2000</code>
 			</td>
 		</tr>
