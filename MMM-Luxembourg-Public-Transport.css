@@ -12,7 +12,11 @@
             color: #fff;
         }
             .lux-transport__next__title > .fa {
-                margin: 0 20px;
+                margin: 0;
+            }
+
+            .lux-transport__next__title > span {
+                margin-left: 20px;
             }
 
         .lux-transport__next__time {

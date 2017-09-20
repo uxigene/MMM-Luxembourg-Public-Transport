@@ -25,7 +25,7 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 	template:
 		'<div class="lux-transport">' +
 			'<div class="lux-transport__next">' +
-				'<div class="lux-transport__next__title"><i class="fa fa-bus" aria-hidden="true"></i><% this[0].name %></div>' +
+				'<div class="lux-transport__next__title"><i class="fa fa-bus" aria-hidden="true"></i><span><% this[0].name %></span></div>' +
 				'<div class="lux-transport__next__time">Next bus <strong><% moment(this[0].datetime).fromNow() %></strong></div>' +
 				'<div class="lux-transport__next__subtitle"><% this[0].stop %> — <% this[0].direction %></div>' +
 			'</div>' +
