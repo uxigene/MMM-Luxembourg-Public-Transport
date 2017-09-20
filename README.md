@@ -31,6 +31,7 @@ modules: [
 
 ## Configuration options
 Please check this [API](https://data.public.lu/en/datasets/arrets-de-transport-public-et-departs-en-temps-reel/).
+
 The following property can be configured:
 
 | Option | Description | Default value |
