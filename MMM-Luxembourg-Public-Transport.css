@@ -11,9 +11,13 @@
             font-weight: bold;
             color: #fff;
         }
+            .lux-transport__next__title > .fa {
+                margin: 0 20px;
+            }
 
         .lux-transport__next__time {
             text-transform: uppercase;
+            font-weight: 100;
             font-size: 24px;
         }
             .lux-transport__next__time > strong {
@@ -22,6 +26,7 @@
 
         .lux-transport__next__subtitle {
             font-size: 20px;
+            font-weight: 100;
         }
 
     .lux-transport__schedule {
@@ -50,8 +55,7 @@
                     top: 6px;
                     width: 0;
                     height: 0;
-                    border-top: 5px solid transparent;
-                    border-bottom: 5px solid transparent;
-
-                    border-left: 8px solid #fff;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    border-left: 6px solid #fff;
                 }

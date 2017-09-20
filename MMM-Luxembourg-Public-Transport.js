@@ -25,7 +25,7 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 	template:
 		'<div class="lux-transport">' +
 			'<div class="lux-transport__next">' +
-				'<div class="lux-transport__next__title"><% this[0].name %></div>' +
+				'<div class="lux-transport__next__title"><i class="fa fa-bus" aria-hidden="true"></i><% this[0].name %></div>' +
 				'<div class="lux-transport__next__time">Next bus <strong><% moment(this[0].datetime).fromNow() %></strong></div>' +
 				'<div class="lux-transport__next__subtitle"><% this[0].stop %> — <% this[0].direction %></div>' +
 			'</div>' +
@@ -100,8 +100,11 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 		const wrapperEl = document.createElement("div");
 
 		if(this.success) {
-			wrapperEl.innerHTML = template(this.template, this.departures.slice(0,this.config.maxLength));
-		};
+			wrapperEl.innerHTML = template(this.template, this.departures.slice(0, this.config.maxLength));
+		} else {
+			wrapperEl.innerHTML = this.translate("LOADING");
+			wrapperEl.className = "small dimmed";
+		}
 
 		return wrapperEl;
 	}
