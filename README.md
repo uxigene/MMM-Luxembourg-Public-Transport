@@ -1,6 +1,9 @@
 # MMM-Luxembourg-Public-Transport
 Luxembourg public transport departures in real time. Module for MagicMirror².
 
+## Screenshot
+![](.github/example.png)
+
 ## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
