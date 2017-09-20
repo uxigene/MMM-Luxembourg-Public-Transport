@@ -38,7 +38,7 @@ The following property can be configured:
 | -------|-------------|:-------------:|
 | from | Station ID. [API parameter](http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes). | - |
 | to | Station ID. [API parameter](http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes). | - |
-| duration | Interval size in minutes. Range is from 1 to 1439 minutes. [API parameter](http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes). | 720 |
+| duration | Interval size in minutes. Range is from 1 to 1439 minutes. [API parameter](http://travelplanner.mobiliteit.lu/restproxy/departureBoard?wadl). | 720 |
 | fetchInterval | Fetch interval in milliseconds. | 6000 |
 | maxLength | Maximum items to be displayed in schedule. | 16 |
 | animationSpeed | [Animation speed in milliseconds.](https://github.com/MichMich/MagicMirror/blob/master/modules/README.md#thisupdatedomspeed) | 2000 |
