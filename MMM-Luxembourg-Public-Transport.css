@@ -8,7 +8,7 @@
     }
         .lux-transport__next__title {
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 100;
             color: #fff;
         }
             .lux-transport__next__title > .fa {
@@ -21,7 +21,7 @@
 
         .lux-transport__next__time {
             text-transform: uppercase;
-            font-weight: 100;
+            font-weight: light;
             font-size: 24px;
         }
             .lux-transport__next__time > strong {

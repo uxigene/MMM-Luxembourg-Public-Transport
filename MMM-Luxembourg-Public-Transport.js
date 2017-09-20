@@ -10,14 +10,13 @@
 'use strict';
 
 Module.register("MMM-Luxembourg-Public-Transport", {
+	urlTpl: 'https://travelplanner.mobiliteit.lu/restproxy/departureBoard?accessId=cdt&id={from}&direction={to}&duration={duration}&format=json',
 
 	defaults: {
-		urlTpl         : 'https://travelplanner.mobiliteit.lu/restproxy/departureBoard?accessId=cdt&id={from}&direction={to}&duration={duration}&format={format}',
 		to             : '',
 		from           : '',
 		duration       : '720',
-		format         : 'json',
-		fetchInterval  : 1000 * 60,
+		fetchInterval  : 5000,
 		animationSpeed : 2000,
 		maxLength      : 16
 	},
@@ -52,11 +51,10 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 	},
 
 	getUrl: function() {
-		return this.config.urlTpl
+		return this.urlTpl
 			.replace(/{from}/gi, this.config.from)
 			.replace(/{to}/gi, this.config.to)
-			.replace(/{duration}/gi, this.config.duration)
-			.replace(/{format}/gi, this.config.format);
+			.replace(/{duration}/gi, this.config.duration);
 	},
 
 	start: function() {
