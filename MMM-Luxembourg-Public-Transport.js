@@ -18,7 +18,7 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 		duration       : '720',
 		fetchInterval  : 5000,
 		animationSpeed : 2000,
-		maxLength      : 16
+		maxLength      : 20
 	},
 
 	template:
@@ -58,9 +58,9 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 	},
 
 	start: function() {
-		this.config     = Object.assign({}, this.defaults, this.config);
-		this.success    = false;
-		this.departures = [];
+		this.config   = Object.assign({}, this.defaults, this.config);
+		this.success  = false;
+		this.response = {};
 
 		this.run();
 
@@ -73,37 +73,53 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		Log.log(this.name + " received a socket notification: " + notification);
+		Log.log(this.name + " received a socket notification: " + notification, payload);
 
 		switch (notification) {
 			case 'LUX_TRANSPORT:SUCCESS':
 				this.success = true;
-				this.departures = payload;
 				break;
 
 			case 'LUX_TRANSPORT:ERROR':
 				this.success = false;
-				this.departures = [];
 				break;
 
 			default:
 				this.success = false;
-				this.departures = [];
 		}
 
+		this.response = this.normalize(payload);
 		this.updateDom(this.config.animationSpeed);
+	},
+
+	normalize: function(data) {
+		const datetimeNow = new Date();
+		const departures  = [];
+
+		data.Departure.forEach(departure => {
+			const datetime = new Date(departure.date + ' ' + departure.time);
+
+			if(datetime > datetimeNow) {
+				departures.push({
+					name      : departure.name,
+					stop      : departure.stop,
+					time      : departure.time,
+					data      : departure.date,
+					direction : departure.direction,
+					datetime  : datetime
+				})
+			}
+		});
+
+		return departures.slice(0, this.config.maxLength);
 	},
 
 	getDom: function() {
 		const wrapperEl = document.createElement("div");
 
 		if(this.success) {
-			wrapperEl.innerHTML = template(this.template, this.departures.slice(0, this.config.maxLength));
-		} else {
-			wrapperEl.innerHTML = this.translate("LOADING");
-			wrapperEl.className = "small dimmed";
+			wrapperEl.innerHTML = template(this.template, this.response);
 		}
-
 		return wrapperEl;
 	}
 });

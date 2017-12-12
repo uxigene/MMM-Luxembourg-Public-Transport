@@ -23,6 +23,8 @@ module.exports = NodeHelper.create({
 	},
 
 	fetch: function(url) {
+		url = encodeURI(url);
+
 		https.get(url, resp => {
 			let buffer = '';
 
@@ -31,25 +33,8 @@ module.exports = NodeHelper.create({
 			});
 
 			resp.on('end', () => {
-				const datetimeNow = new Date();
-				const departures  = [];
-
-				JSON.parse(buffer).Departure.forEach(departure => {
-					const datetime = new Date(departure.date + ' ' + departure.time);
-
-					if(datetime > datetimeNow) {
-						departures.push({
-							name      : departure.name,
-							stop      : departure.stop,
-							time      : departure.time,
-							data      : departure.date,
-							direction : departure.direction,
-							datetime  : datetime
-						})
-					}
-				});
-
-				this.sendSocketNotification('LUX_TRANSPORT:SUCCESS', departures);
+				const data = JSON.parse(buffer);
+				this.sendSocketNotification('LUX_TRANSPORT:SUCCESS', data);
 			});
 
 		}).on("error", err => {
