@@ -10,22 +10,22 @@
 'use strict';
 
 Module.register("MMM-Luxembourg-Public-Transport", {
-	urlTpl: 'https://travelplanner.mobiliteit.lu/restproxy/departureBoard?accessId=cdt&id={from}&direction={to}&duration={duration}&format=json',
+	urlTpl: 'https://cdt.hafas.de/opendata/apiserver/departureBoard?accessId={apiKey}&lang=fr&id={stationId}&duration={duration}&maxJourneys={maxResults}&format=json',
 
 	defaults: {
-		to             : '',
-		from           : '',
+		apiKey         : "",
+		stationId      : 0,
 		duration       : '720',
-		fetchInterval  : 5000,
+		fetchInterval  : 60000,
 		animationSpeed : 2000,
-		maxLength      : 20
+		maxResults     : 20
 	},
 
 	template:
 		'<div class="lux-transport">' +
 			'<div class="lux-transport__next">' +
-				'<div class="lux-transport__next__title"><i class="fa fa-bus" aria-hidden="true"></i><span><% this[0].name %></span></div>' +
-				'<div class="lux-transport__next__time">Next bus <strong><% moment(this[0].datetime).fromNow() %></strong></div>' +
+				'<div class="lux-transport__next__title"><i class="fa fa-<% this[0].type %>" aria-hidden="true"></i><span><% this[0].name %></span></div>' +
+				'<div class="lux-transport__next__time">Next <% this[0].type %> <strong><% moment(this[0].datetime).fromNow() %></strong></div>' +
 				'<div class="lux-transport__next__subtitle"><% this[0].stop %> — <% this[0].direction %></div>' +
 			'</div>' +
 
@@ -52,9 +52,10 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 
 	getUrl: function() {
 		return this.urlTpl
-			.replace(/{from}/gi, this.config.from)
-			.replace(/{to}/gi, this.config.to)
-			.replace(/{duration}/gi, this.config.duration);
+			.replace(/{apiKey}/gi, this.config.apiKey)
+			.replace(/{stationId}/gi, this.config.stationId)
+			.replace(/{duration}/gi, this.config.duration)
+			.replace(/{maxResults}/gi, this.config.maxResults);
 	},
 
 	start: function() {
@@ -98,10 +99,16 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 
 		data.Departure.forEach(departure => {
 			const datetime = new Date(departure.date + ' ' + departure.time);
+			var type = "train"
+
+			if (departure.name.includes("BUS")) {
+				type = "bus"
+			}
 
 			if(datetime > datetimeNow) {
 				departures.push({
 					name      : departure.name,
+					type	  : type,
 					stop      : departure.stop,
 					time      : departure.time,
 					data      : departure.date,

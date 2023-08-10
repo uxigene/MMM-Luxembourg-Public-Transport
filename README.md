@@ -26,7 +26,8 @@ modules: [
 	{
 		module: 'MMM-Luxembourg-Public-Transport',
 		config: {
-			// See 'Configuration options' for more information.
+            stationId: 0,
+            apiKey: '<api key>'
 		}
 	}
 ]
@@ -37,11 +38,11 @@ Please check this [API](https://data.public.lu/en/datasets/arrets-de-transport-p
 
 The following property can be configured:
 
-| Option | Description | Default value |
-| -------|-------------|:-------------:|
-| from | Station ID. [API parameter](http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes). Use without ```id=``` | - |
-| to | Station ID. [API parameter](http://travelplanner.mobiliteit.lu/hafas/query.exe/dot?performLocating=2&tpl=stop2csv&look_maxdist=150000&look_x=6112550&look_y=49610700&stationProxy=yes). Use without ```id=``` | - |
-| duration | Interval size in minutes. Range is from 1 to 1439 minutes. [API parameter](http://travelplanner.mobiliteit.lu/restproxy/departureBoard?wadl). | 720 |
-| fetchInterval | Fetch interval in milliseconds. | 6000 |
-| maxLength | Maximum items to be displayed in schedule. | 16 |
-| animationSpeed | [Animation speed in milliseconds.](https://github.com/MichMich/MagicMirror/blob/master/modules/README.md#thisupdatedomspeed) | 2000 |
+| Option         | Required | Description                                                                                                                                                                             | Default value |
+|----------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------:|
+| stationId      | YES      | Station ID. Can be found using the Mobiliteit.lu API. Documented on [data.public.lu](https://data.public.lu/fr/datasets/api-mobiliteit-lu/). The key ```extId``` includes the stationId |       -       |
+| apiKey         | YES      | Mobiliteit.lu API Key, can be requested on [data.public.lu](https://data.public.lu/fr/datasets/api-mobiliteit-lu/)                                                                      |       -       |
+| duration       | NO       | Interval size in minutes. Range is from 1 to 1439 minutes. [API parameter](http://travelplanner.mobiliteit.lu/restproxy/departureBoard?wadl).                                           |      720      |
+| fetchInterval  | NO       | Fetch interval in milliseconds.                                                                                                                                                         |     6000      |
+| maxResults     | NO       | Maximum items to be displayed in schedule.                                                                                                                                              |      16       |
+| animationSpeed | NO       | [Animation speed in milliseconds.](https://github.com/MichMich/MagicMirror/blob/master/modules/README.md#thisupdatedomspeed)                                                            |     2000      |
