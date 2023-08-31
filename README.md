@@ -26,8 +26,8 @@ modules: [
 	{
 		module: 'MMM-Luxembourg-Public-Transport',
 		config: {
-            stationId: 0,
-            apiKey: '<api key>'
+			stationId: 0,
+			apiKey: '<api key>'
 		}
 	}
 ]
