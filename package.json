@@ -1,0 +1,21 @@
+{
+  "name": "mmm-luxembourg-public-transport",
+  "version": "1.0.0",
+  "description": "Luxembourg public transport departures in real time. Module for MagicMirror².",
+  "main": "MMM-Luxembourg-Public-Transport.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:uxigene/MMM-Luxembourg-Public-Transport.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "Luxembourg",
+    "Public Transport"
+  ],
+  "author": "uxigene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uxigene/MMM-Luxembourg-Public-Transport/issues"
+  },
+  "homepage": "https://github.com/uxigene/MMM-Luxembourg-Public-Transport#readme"
+}
