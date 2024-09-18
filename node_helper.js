@@ -1,4 +1,4 @@
-/* Magic Mirror
+/* MagicMirror²
  * Node Helper: Luxembourg Public Transport
  *
  * By Evghenii Marinescu https://github.com/uxigene/

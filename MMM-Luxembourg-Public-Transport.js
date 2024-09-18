@@ -1,6 +1,6 @@
 /* global Module */
 
-/* Magic Mirror
+/* MagicMirror²
  * Module: Luxembourg Public Transport
  *
  * By Evghenii Marinescu https://github.com/uxigene/
