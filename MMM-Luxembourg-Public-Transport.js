@@ -94,7 +94,7 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 	},
 
 	normalize: function(data) {
-		const datetimeNow = new Date();
+		const datetimeNow = new Date(Date.now());
 		const departures  = [];
 
 		data.Departure.forEach(departure => {
