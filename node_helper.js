@@ -12,17 +12,17 @@ const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
 
-	start: function() {
+	start () {
 		console.log("Starting node helper for: " + this.name);
 	},
 
-	socketNotificationReceived: function(notification, payload) {
+	socketNotificationReceived (notification, payload) {
 		if (notification === "LUX_TRANSPORT:FETCH") {
 			this.fetch(payload.url);
 		}
 	},
 
-	fetch: function(url) {
+	fetch (url) {
 		url = encodeURI(url);
 
 		https.get(url, resp => {
