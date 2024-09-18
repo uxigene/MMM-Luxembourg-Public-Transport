@@ -1,39 +1,52 @@
 # MMM-Luxembourg-Public-Transport
-Luxembourg public transport departures in real time. Module for MagicMirror².
+
+Luxembourg public transport departures in real time. Module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror).
 
 ## Screenshot
-![](.github/example.png)
+
+![Screenshot](.github/example.png)
 
 ## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
-````
+
+```shell
 cd ~/MagicMirror/modules
-````
+```
 
 Clone this repository:
-````
+
+```shell
 git clone https://github.com/uxigene/MMM-Luxembourg-Public-Transport
-````
+```
 
 Configure the module in your `config.js` file.
 
-## Using the module
+## Update
+
+Go to the module’s folder inside your MagicMirror's module folder and pull the latest version:
+
+```bash
+cd ~/MagicMirror/modules/MMM-Luxembourg-Public-Transport
+git pull
+```
+
+## Configuration
 
 To use this module, add it to the modules array in the `config/config.js` file:
-````javascript
-modules: [
-	{
-		module: 'MMM-Luxembourg-Public-Transport',
-		config: {
-			stationId: 0,
-			apiKey: '<api key>'
-		}
-	}
-]
-````
 
-## Configuration options
+```javascript
+    {
+        module: "MMM-Luxembourg-Public-Transport",
+        config: {
+            stationId: 0,
+            apiKey: "<api key>"
+        }
+    },
+```
+
+### Configuration options
+
 Please check this [API](https://data.public.lu/en/datasets/arrets-de-transport-public-et-departs-en-temps-reel/).
 
 The following property can be configured:
