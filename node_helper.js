@@ -1,7 +1,7 @@
 /* Magic Mirror
  * Node Helper: Luxembourg Public Transport
  *
- * By Evghenii Marinescu https://github.com/MarinescuEvghenii/
+ * By Evghenii Marinescu https://github.com/uxigene/
  * MIT Licensed.
  */
 

@@ -13,7 +13,7 @@ cd ~/MagicMirror/modules
 
 Clone this repository:
 ````
-git clone git@github.com:MarinescuEvghenii/MMM-Luxembourg-Public-Transport.git
+git clone https://github.com/uxigene/MMM-Luxembourg-Public-Transport
 ````
 
 Configure the module in your `config.js` file.
