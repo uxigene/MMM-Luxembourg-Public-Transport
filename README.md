@@ -20,8 +20,6 @@ Clone this repository:
 git clone https://github.com/uxigene/MMM-Luxembourg-Public-Transport
 ```
 
-Configure the module in your `config.js` file.
-
 ## Update
 
 Go to the module’s folder inside your MagicMirror's module folder and pull the latest version:
