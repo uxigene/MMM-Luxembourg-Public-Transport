@@ -7,8 +7,8 @@
 
 'use strict';
 
+const https      = require("node:https");
 const NodeHelper = require("node_helper");
-const https      = require('https');
 
 module.exports = NodeHelper.create({
 
