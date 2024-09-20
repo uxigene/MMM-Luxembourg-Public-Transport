@@ -1,9 +1,9 @@
 /* global Module */
 
-/* Magic Mirror
+/* MagicMirror²
  * Module: Luxembourg Public Transport
  *
- * By Evghenii Marinescu https://github.com/MarinescuEvghenii/
+ * By Evghenii Marinescu https://github.com/uxigene/
  * MIT Licensed.
  */
 
@@ -38,19 +38,19 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 			'</ul>' +
 		'</div>',
 
-	getStyles: function() {
+	getStyles () {
 		return ["MMM-Luxembourg-Public-Transport.css", "font-awesome.css"];
 	},
 
-	getScripts: function() {
+	getScripts () {
 		return ["moment.js", 'template-engine.js'];
 	},
 
-	getSchedule: function () {
+	getSchedule () {
 		this.sendSocketNotification('LUX_TRANSPORT:FETCH', { url : this.getUrl() });
 	},
 
-	getUrl: function() {
+	getUrl () {
 		return this.urlTpl
 			.replace(/{apiKey}/gi, this.config.apiKey)
 			.replace(/{stationId}/gi, this.config.stationId)
@@ -58,7 +58,7 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 			.replace(/{maxResults}/gi, this.config.maxResults);
 	},
 
-	start: function() {
+	start () {
 		this.config   = Object.assign({}, this.defaults, this.config);
 		this.success  = false;
 		this.response = {};
@@ -68,12 +68,12 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 		Log.log("Starting module: " + this.name);
 	},
 
-	run: function() {
+	run () {
 		this.getSchedule();
 		setInterval(() => this.getSchedule(), this.config.fetchInterval);
 	},
 
-	socketNotificationReceived: function(notification, payload) {
+	socketNotificationReceived (notification, payload) {
 		Log.log(this.name + " received a socket notification: " + notification, payload);
 
 		switch (notification) {
@@ -93,8 +93,8 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 		this.updateDom(this.config.animationSpeed);
 	},
 
-	normalize: function(data) {
-		const datetimeNow = new Date();
+	normalize (data) {
+		const datetimeNow = new Date(Date.now());
 		const departures  = [];
 
 		data.Departure.forEach(departure => {
@@ -121,7 +121,7 @@ Module.register("MMM-Luxembourg-Public-Transport", {
 		return departures.slice(0, this.config.maxLength);
 	},
 
-	getDom: function() {
+	getDom () {
 		const wrapperEl = document.createElement("div");
 
 		if(this.success) {

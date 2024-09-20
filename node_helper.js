@@ -1,28 +1,28 @@
-/* Magic Mirror
+/* MagicMirror²
  * Node Helper: Luxembourg Public Transport
  *
- * By Evghenii Marinescu https://github.com/MarinescuEvghenii/
+ * By Evghenii Marinescu https://github.com/uxigene/
  * MIT Licensed.
  */
 
 'use strict';
 
+const https      = require("node:https");
 const NodeHelper = require("node_helper");
-const https      = require('https');
 
 module.exports = NodeHelper.create({
 
-	start: function() {
+	start () {
 		console.log("Starting node helper for: " + this.name);
 	},
 
-	socketNotificationReceived: function(notification, payload) {
+	socketNotificationReceived (notification, payload) {
 		if (notification === "LUX_TRANSPORT:FETCH") {
 			this.fetch(payload.url);
 		}
 	},
 
-	fetch: function(url) {
+	fetch (url) {
 		url = encodeURI(url);
 
 		https.get(url, resp => {
